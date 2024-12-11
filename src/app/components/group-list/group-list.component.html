@@ -1,0 +1,13 @@
+<h2>Group List</h2>
+<mat-list *ngIf="participants.length; else noParticipants">
+  <mat-list-item *ngFor="let participant of participants">
+    {{ participant }}
+    <button mat-icon-button (click)="removeParticipant(participant)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
+<ng-template #noParticipants>
+  <p>No participants added yet.</p>
+</ng-template>
+<button mat-raised-button color="primary" (click)="openAddParticipantDialog()">Add Participant</button>
