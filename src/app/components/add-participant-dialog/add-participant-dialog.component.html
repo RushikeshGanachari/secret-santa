@@ -1,11 +1,17 @@
 <h1 mat-dialog-title>Add Participant</h1>
-<div mat-dialog-content>
+<div mat-dialog-content class="flex-col	gap-10 p-5">
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
     <input matInput [(ngModel)]="name" />
   </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="email" type="email" />
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="name" [disabled]="!name">Add</button>
-</div>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="{ name: name, email: email }" [disabled]="!name || !email || !isValidEmail()">
+      Add
+    </button>
+  </div>

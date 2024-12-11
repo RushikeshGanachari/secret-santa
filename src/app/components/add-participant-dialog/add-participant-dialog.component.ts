@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import { MatDialogModule, MatDialogClose } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 
@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatDialogContent,
     MatDialogClose,
     FormsModule
   ],
@@ -21,5 +22,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class AddParticipantDialogComponent {
   name: string = '';
+  email: string = '';
+
+  isValidEmail(): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(this.email);
+  }
 
 }

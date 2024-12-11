@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { GroupListComponent } from './components/group-list/group-list.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [ MatToolbarModule, GroupListComponent],
+  imports: [ MatToolbarModule , RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
